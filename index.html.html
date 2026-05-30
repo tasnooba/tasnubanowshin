@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tasnuba Nowshin Mim — Research Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-200: #5DCAA5;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+
+    --amber-50: #FAEEDA;
+    --amber-100: #FAC775;
+    --amber-200: #EF9F27;
+    --amber-400: #BA7517;
+    --amber-600: #854F0B;
+
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-200: #B4B2A9;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --gray-800: #444441;
+    --gray-900: #2C2C2A;
+
+    --coral-50: #FAECE7;
+    --coral-100: #F5C4B3;
+    --coral-200: #F0997B;
+    --coral-400: #D85A30;
+    --coral-600: #993C1D;
+
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text-main: #1C1C1A;
+    --text-muted: #6B6B66;
+    --text-faint: #9E9E99;
+    --border: rgba(0,0,0,0.09);
+    --border-med: rgba(0,0,0,0.14);
+
+    --radius: 12px;
+    --radius-sm: 7px;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--teal-900);
+    color: #fff;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(29,158,117,0.25);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(29,158,117,0.18);
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-200);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--teal-100);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    background: rgba(29,158,117,0.18);
+    border: 1px solid rgba(93,202,165,0.28);
+    color: var(--teal-100);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 13px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-meta {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .meta-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+  }
+
+  .section {
+    margin-top: 4rem;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-400);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: var(--text-main);
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── THESIS CARD ── */
+  .thesis-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .thesis-header {
+    background: var(--teal-50);
+    border-bottom: 1px solid rgba(15,110,86,0.12);
+    padding: 1.8rem 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .thesis-badge {
+    background: var(--teal-400);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .thesis-header-text {}
+
+  .thesis-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--teal-800);
+    margin-bottom: 0.4rem;
+  }
+
+  .thesis-sub {
+    font-size: 13px;
+    color: var(--teal-600);
+  }
+
+  .thesis-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .thesis-body { grid-template-columns: 1fr; }
+    .hero-meta { gap: 1.2rem; }
+  }
+
+  .thesis-section-head {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    margin-bottom: 0.8rem;
+  }
+
+  .thesis-p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-cell {
+    background: var(--surface);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--teal-600);
+    line-height: 1;
+  }
+
+  .stat-unit {
+    font-size: 13px;
+    color: var(--teal-600);
+    font-weight: 500;
+  }
+
+  .stat-desc {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SHAP VISUAL ── */
+  .shap-section {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    grid-column: 1 / -1;
+  }
+
+  .shap-bar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+
+  .shap-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .shap-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .shap-track {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-50);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .shap-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.6s ease;
+  }
+
+  .shap-val {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    width: 40px;
+    text-align: right;
+  }
+
+  /* ── PROJECT CARD ── */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.5rem;
+  }
+
+  .project-icon-col {
+    padding-top: 3px;
+  }
+
+  .project-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--amber-50);
+    border: 1px solid rgba(186,117,23,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--amber-400);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .project-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-venue {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .finding-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .finding-list li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .finding-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal-400);
+    font-size: 12px;
+  }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .skill-cell {
+    background: var(--surface);
+    padding: 1.3rem 1.5rem;
+  }
+
+  .skill-cell-head {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    border: 1px solid var(--border);
+  }
+
+  .skill-tag.highlight {
+    background: var(--teal-50);
+    color: var(--teal-800);
+    border-color: rgba(15,110,86,0.18);
+  }
+
+  /* ── CONTACT ── */
+  .contact-bar {
+    margin-top: 4rem;
+    background: var(--teal-900);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .contact-bar-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: #fff;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 100px;
+    transition: background 0.15s;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.16);
+  }
+
+  .contact-link svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── PUBLICATION TAG ── */
+  .pub-tag {
+    display: inline-block;
+    background: var(--amber-50);
+    border: 1px solid rgba(186,117,23,0.2);
+    color: var(--amber-600);
+    font-size: 11px;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── ANIMATE ON LOAD ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeUp 0.55s ease both;
+  }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.12s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.19s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(5) { animation-delay: 0.32s; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.5rem 0 1.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Research Portfolio</p>
+    <h1 class="hero-name">Tasnuba Nowshin Mim</h1>
+    <p class="hero-tagline">Transportation researcher applying machine learning and explainable AI to urban mobility — with a focus on equitable, evidence-based transit planning in the Global South.</p>
+    <div class="hero-chips">
+      <span class="chip">Urban Mobility</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">Explainable AI</span>
+      <span class="chip">Traffic Microsimulation</span>
+      <span class="chip">Modal Shift</span>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Institution</span>
+        <span class="meta-value">Ahsanullah University of Science & Technology</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Degree</span>
+        <span class="meta-value">B.Sc. Civil Engineering · Jan 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">GPA</span>
+        <span class="meta-value">3.528 / 4.00</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">IELTS</span>
+        <span class="meta-value">7.5 (Proficient)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ── THESIS ── -->
+  <section class="section">
+    <p class="section-label">Featured Research</p>
+    <h2 class="section-title">Undergraduate Thesis</h2>
+
+    <div class="thesis-card">
+      <div class="thesis-header">
+        <span class="thesis-badge">Manuscript in prep</span>
+        <div class="thesis-header-text">
+          <div class="thesis-title">Assessing Multi-Modal Shift to Metro Using Machine Learning and Explainable AI: A Case Study of Dhaka Metro Rail</div>
+          <div class="thesis-sub">Ahsanullah University of Science and Technology · Dec 2024 – Dec 2025</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-cell">
+          <span class="stat-number">500</span>
+          <span class="stat-desc">survey respondents</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">94<span class="stat-unit">%</span></span>
+          <span class="stat-desc">best model accuracy</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">0.984</span>
+          <span class="stat-desc">ROC-AUC score</span>
+        </div>
+      </div>
+
+      <div class="thesis-body" style="grid-template-columns:1fr 1fr;">
+        <div>
+          <p class="thesis-section-head">Motivation</p>
+          <p class="thesis-p">The 2022 launch of Dhaka MRT Line-6 created an opportunity to study what drives commuters to shift from private vehicles and rickshaws to mass rapid transit — with direct implications for equitable transit policy across megacities in the Global South.</p>
+        </div>
+        <div>
+          <p class="thesis-section-head">Methodology</p>
+          <p class="thesis-p">A stratified multi-channel survey instrument (43 variables) was administered across metro stations, roadside intercepts, workplaces, and online platforms. Four classifiers (Logistic Regression, Random Forest, SVM, XGBoost) were trained on SMOTE-balanced data and evaluated via cross-validation.</p>
+        </div>
+
+        <!-- SHAP visual full-width -->
+        <div style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+          <p class="thesis-section-head">SHAP Feature Importance Hierarchy</p>
+          <div class="shap-bar-group" style="margin-top:1rem;">
+
+            <div class="shap-row">
+              <span class="shap-label">Travel time savings</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:100%; background: var(--teal-400);"></div>
+              </div>
+              <span class="shap-val">0.165</span>
+            </div>
+            <div class="shap-row">
+              <span class="shap-label">Frequency &amp; reliability</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:72%; background: var(--teal-200);"></div>
+              </div>
+              <span class="shap-val">0.052</span>
+            </div>
+            <div class="shap-row">
+              <span class="shap-label">Fare affordability</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:66%; background: var(--teal-200);"></div>
+              </div>
+              <span class="shap-val">0.048</span>
+            </div>
+            <div class="shap-row">
+              <span class="shap-label">Station accessibility</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:58%; background: var(--teal-100);"></div>
+              </div>
+              <span class="shap-val">0.041</span>
+            </div>
+            <div class="shap-row">
+              <span class="shap-label">Income level</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:22%; background: var(--gray-200);"></div>
+              </div>
+              <span class="shap-val">&lt;0.05</span>
+            </div>
+            <div class="shap-row">
+              <span class="shap-label">Gender / Age</span>
+              <div class="shap-track">
+                <div class="shap-fill" style="width:18%; background: var(--gray-200);"></div>
+              </div>
+              <span class="shap-val">&lt;0.05</span>
+            </div>
+          </div>
+          <p style="margin-top:1rem; font-size:12px; color: var(--text-faint); font-family: var(--font-mono);">Mean |SHAP| values · bar widths proportional to relative magnitude</p>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <p class="thesis-section-head">Key Finding</p>
+          <p class="thesis-p">Travel time savings dominated switching decisions at mean |SHAP| = 0.165 — approximately <strong>3.2×</strong> the magnitude of secondary features. Critically, demographic variables (income, gender, age) exerted negligible predictive influence (SHAP &lt; 0.05), challenging the income-mediated shift paradigm and indicating that <em>service performance</em> is the primary driver of equitable metro adoption regardless of socioeconomic background.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section class="section">
+    <p class="section-label">Applied Research</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-card">
+      <div class="project-icon-col">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 17l4-8 4 4 4-6 4 4"/>
+            <circle cx="7" cy="9" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="19" cy="13" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="project-title">Microsimulation-Based Traffic Intervention Study</div>
+        <div class="project-venue">Transportation Engineering Laboratory, AUST · 2025 · Tejgaon Road, Dhaka</div>
+        <p class="project-desc">Led a team to conduct field data collection and PTV VISSIM microsimulation modelling at one of Dhaka's most congested arterials, evaluating the traffic-level impacts of three distinct engineering interventions.</p>
+        <ul class="finding-list">
+          <li>Captured real-time traffic volumes and vehicle speeds through a structured field protocol at a high-congestion intersection.</li>
+          <li>Calibrated a PTV VISSIM model to observed conditions before scenario testing to ensure validity.</li>
+          <li>Signal retiming reduced intersection delay; dedicated bus lanes improved transit throughput; pedestrian-exclusive phasing improved safety but required complementary lane enforcement to preserve capacity gains.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section">
+    <p class="section-label">Technical Competencies</p>
+    <h2 class="section-title">Methods &amp; Tools</h2>
+
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <p class="skill-cell-head">Machine Learning</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">XGBoost</span>
+          <span class="skill-tag highlight">Random Forest</span>
+          <span class="skill-tag highlight">SVM</span>
+          <span class="skill-tag highlight">Logistic Regression</span>
+          <span class="skill-tag highlight">SMOTE</span>
+          <span class="skill-tag highlight">SHAP</span>
+          <span class="skill-tag highlight">LightGBM</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-head">Programming</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Python</span>
+          <span class="skill-tag">C</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-head">Transport Modeling</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">PTV VISSIM</span>
+          <span class="skill-tag highlight">PTV Viswalk</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-head">Data &amp; Design</p>
+        <div class="skill-tags">
+          <span class="skill-tag">SPSS</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">AutoCAD</span>
+          <span class="skill-tag">ETABS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESEARCH AREAS ── -->
+  <section class="section">
+    <p class="section-label">Focus Areas</p>
+    <h2 class="section-title">Research Interests</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem;">
+        <div style="width:36px;height:36px;background:var(--teal-50);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;border:1px solid rgba(15,110,86,0.12);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-600)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:0.4rem;">Transportation Data Analytics</p>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Survey design, SMOTE balancing, and ML pipelines for large-scale mobility datasets.</p>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem;">
+        <div style="width:36px;height:36px;background:var(--amber-50);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;border:1px solid rgba(186,117,23,0.15);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:0.4rem;">Urban Mobility Behaviour</p>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Modal shift drivers, equity of access, and travel demand in rapidly growing megacities.</p>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem;">
+        <div style="width:36px;height:36px;background:var(--coral-50);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;border:1px solid rgba(216,90,48,0.13);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--coral-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:0.4rem;">Infrastructure Systems Analysis</p>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">Microsimulation of interventions — signal timing, bus lanes, pedestrian phasing — to quantify operational impacts.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <div class="contact-bar">
+    <div>
+      <div class="contact-bar-title">Get in touch</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-top:3px;">Open to graduate research opportunities and collaborations</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:tasnubanowshin757@gmail.com">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+      <a class="contact-link" href="https://linkedin.com/in/tasnubanowshin" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-link" href="https://github.com/tasnooba" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
